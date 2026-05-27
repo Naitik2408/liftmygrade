@@ -10,6 +10,8 @@ import SuccessStories from "@/components/SuccessStories";
 import Assessment from "@/components/Assessment";
 import Footer from "@/components/Footer";
 import Pathways from "@/components/Pathways";
+import Pricing from "@/components/Pricing";
+import BlogSection from "@/components/BlogSection";
 
 export default function Home() {
   return (
@@ -25,6 +27,8 @@ export default function Home() {
       {/* <Philosophy /> */}
       <SuccessStories />
       {/* <Assessment /> */}
+      <BlogSection />
+      <Pricing />
       <Footer />
     </main>
   );

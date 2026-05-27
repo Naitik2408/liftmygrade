@@ -1,15 +1,8 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import SectionLabel from "./SectionLabel";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, useGSAP);
-}
 
 export default function AcademicJourney() {
   const stages = [
@@ -55,49 +48,12 @@ export default function AcademicJourney() {
     },
   ];
 
-  const sectionRef = useRef<HTMLElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    const mm = gsap.matchMedia();
 
-    mm.add("(min-width: 768px)", () => {
-      // Force clear any stale styles
-      gsap.set(sectionRef.current, { clearProps: "all" });
-      gsap.set(trackRef.current, { clearProps: "all" });
 
-      const track = trackRef.current;
-      if (!track) return;
-
-      const getScrollAmount = () => {
-        const trackWidth = track.scrollWidth;
-        const viewportWidth = window.innerWidth;
-        const diff = trackWidth - viewportWidth;
-        return diff > 0 ? -diff : 0;
-      };
-
-      const tween = gsap.to(track, {
-        x: getScrollAmount,
-        ease: "none",
-      });
-
-      ScrollTrigger.create({
-        trigger: trackRef.current, // Wait until the carousel itself is in view
-        start: "center center", // Pin when the carousel is perfectly centered on screen
-        end: () => `+=${Math.abs(getScrollAmount())}`,
-        pin: sectionRef.current, // Pin the entire section container
-        animation: tween,
-        scrub: 1,
-        anticipatePin: 1, // This tells GSAP to anticipate the pinning and prevents the tiny visual jerk/jump
-        invalidateOnRefresh: true,
-      });
-    });
-
-    return () => mm.revert();
-  }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="py-24 bg-white overflow-hidden w-full" id="journey">
+    <section className="py-24 bg-white w-full overflow-hidden relative" id="journey">
       <div className="px-6 md:px-12 lg:px-16">
         <div className="max-w-7xl mx-auto mb-16">
           <motion.div
@@ -129,41 +85,69 @@ export default function AcademicJourney() {
             Navigate every stage of your academic growth with our comprehensive mentorship roadmap, designed for long-term success.
           </motion.p>
         </div>
-      </div>
 
-      <div className="w-full overflow-hidden pb-16 pt-8">
-        <div 
-          ref={trackRef}
-          className="md:h-[520px] relative flex flex-col md:flex-row w-full md:w-max gap-8 md:gap-0 pl-6 md:pl-12 lg:pl-16 xl:pl-24 pr-6 md:pr-12 lg:pr-16 max-w-xl md:max-w-none mx-auto"
-        >
-          {stages.map((stage, i) => {
-            const isTop = i % 2 === 0;
-            return (
-              <div key={stage.id} className="relative md:w-[320px] w-full shrink-0 group pl-10 md:pl-0">
+        {/* Desktop Single Line Alternating Layout */}
+        <div className="hidden lg:block max-w-[1200px] mx-auto relative py-20">
+          
+          {/* Continuous Straight Line */}
+          <div className="absolute top-1/2 left-[calc(-50vw+50%)] right-[calc(-50vw+50%)] h-[2px] bg-neutral-200 -translate-y-1/2 z-0" />
+          
+          <div className="grid grid-cols-8 gap-0">
+            {stages.map((stage, i) => {
+              const isTop = i % 2 === 0;
+              return (
+                <div key={stage.id} className="relative flex justify-center h-[360px] group">
+                  
+                  {/* Progress Line (Hover effect connecting to next point) */}
+                  {i < stages.length - 1 && (
+                    <div className="hidden lg:block absolute top-1/2 left-1/2 w-full h-[2px] bg-blue-500 -translate-y-1/2 z-0 scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+                  )}
 
+                  {/* Dot */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[14px] h-[14px] rounded-full border-[3px] border-neutral-300 bg-white shadow-sm transition-all duration-300 z-20 group-hover:scale-125 group-hover:border-blue-500 group-hover:bg-white group-hover:shadow-[0_0_0_4px_rgba(59,130,246,0.15)]" />
+                  
+                  {/* Vertical Connector */}
+                  <div className={`absolute left-1/2 -translate-x-1/2 w-[2px] h-[30px] bg-neutral-200 transition-colors duration-300 group-hover:bg-blue-500/40 ${isTop ? 'bottom-1/2' : 'top-1/2'}`} />
+                  
+                  {/* Card */}
+                  <motion.div
+                    initial={{ opacity: 0, y: isTop ? 15 : -15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className={`absolute left-1/2 -translate-x-1/2 w-[220px] bg-white rounded-2xl p-5 border border-neutral-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.05)] transition-all duration-300 z-10 group-hover:border-blue-500/30 group-hover:shadow-[0_8px_30px_-6px_rgba(59,130,246,0.12)] ${
+                      isTop ? 'bottom-[calc(50%+30px)]' : 'top-[calc(50%+30px)]'
+                    }`}
+                  >
+                    <div className="flex flex-col gap-2 items-center text-center">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 transition-colors duration-300 group-hover:text-blue-500">
+                        Phase {stage.id}
+                      </span>
+                      <h3 className="text-[14px] font-semibold text-neutral-900 leading-tight">
+                        {stage.title}
+                      </h3>
+                      <p className="text-[11px] text-neutral-600 leading-relaxed">
+                        {stage.desc}
+                      </p>
+                    </div>
+                  </motion.div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Mobile Vertical Layout */}
+        <div className="lg:hidden w-full overflow-hidden pt-8 pl-4">
+          <div className="relative flex flex-col gap-8 max-w-sm mx-auto">
+            {stages.map((stage, i) => (
+              <div key={stage.id} className="relative w-full group pl-10">
                 {/* Mobile Dot */}
-                <div className="md:hidden absolute left-[11px] top-[30px] w-[10px] h-[10px] rounded-full bg-neutral-200 group-hover:bg-blue-500 z-10 transition-colors" />
+                <div className="absolute left-[11px] top-[30px] w-[10px] h-[10px] rounded-full bg-neutral-200 group-hover:bg-blue-500 z-10 transition-colors" />
 
                 {/* Mobile Line Segment (hide on last item) */}
                 {i < stages.length - 1 && (
-                  <div className="md:hidden absolute left-[15px] top-[36px] bottom-[-80px] w-px border-l-2 border-dashed border-neutral-300 z-0" />
-                )}
-
-                {/* Desktop S-Curve Connectors (hidden on mobile) */}
-                {i < stages.length - 1 && (
-                  <div className="hidden md:block absolute left-[50%] top-[90px] w-full h-[340px] z-0 opacity-40 group-hover:opacity-100 transition-opacity duration-500">
-                    {isTop ? (
-                      <>
-                        <div className="absolute top-0 left-0 w-1/2 h-1/2 border-t-2 border-r-2 border-dashed border-neutral-400 rounded-tr-[40px]"></div>
-                        <div className="absolute bottom-0 right-0 w-1/2 h-1/2 border-b-2 border-l-2 border-dashed border-neutral-400 rounded-bl-[40px]"></div>
-                      </>
-                    ) : (
-                      <>
-                        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 border-b-2 border-r-2 border-dashed border-neutral-400 rounded-br-[40px]"></div>
-                        <div className="absolute top-0 right-0 w-1/2 h-1/2 border-t-2 border-l-2 border-dashed border-neutral-400 rounded-tl-[40px]"></div>
-                      </>
-                    )}
-                  </div>
+                  <div className="absolute left-[15px] top-[36px] bottom-[-40px] w-px border-l-2 border-dashed border-neutral-300 z-0" />
                 )}
 
                 {/* Card */}
@@ -172,37 +156,23 @@ export default function AcademicJourney() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className={`
-                    relative z-10 w-full md:w-[280px] md:h-[180px] bg-white rounded-3xl p-6
-                    border border-neutral-200/80 shadow-[0_2px_20px_-4px_rgba(0,0,0,0.03)]
-                    hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] hover:border-neutral-300 
-                    transition-all duration-300 ease-out
-                    md:absolute md:left-1/2 md:-translate-x-1/2
-                    ${isTop ? 'md:top-0' : 'md:bottom-0'}
-                  `}
+                  className="relative z-10 w-full bg-white rounded-2xl p-5 border border-neutral-100 shadow-sm"
                 >
-                  <div className="flex flex-col gap-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-[#FAFAFA] border border-neutral-200 flex items-center justify-center shadow-sm group-hover:bg-blue-50 group-hover:border-blue-100 transition-colors duration-300 shrink-0">
-                        <span className="text-[11px] font-bold text-neutral-500 group-hover:text-blue-600 transition-colors tracking-wider">
-                          {stage.id}
-                        </span>
-                      </div>
-                      <h3 className="text-[17px] font-semibold text-neutral-900 tracking-tight leading-tight">
-                        {stage.title}
-                      </h3>
-                    </div>
-                    <p className="text-[13px] text-neutral-700 leading-relaxed line-clamp-3">
+                  <div className="flex flex-col gap-2">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-blue-500">
+                      Phase {stage.id}
+                    </span>
+                    <h3 className="text-base font-semibold text-neutral-900 leading-tight">
+                      {stage.title}
+                    </h3>
+                    <p className="text-xs text-neutral-600 leading-relaxed">
                       {stage.desc}
                     </p>
                   </div>
                 </motion.div>
               </div>
-            );
-          })}
-
-          {/* Spacer for horizontal scroll padding */}
-          <div className="hidden md:block w-16 shrink-0" />
+            ))}
+          </div>
         </div>
       </div>
     </section>

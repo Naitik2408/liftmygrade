@@ -5,16 +5,18 @@ export default function Navbar() {
   return (
     <header className="absolute top-0 left-0 right-0 z-50 py-5 px-6 md:px-12">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <div className="text-xl font-extrabold text-white tracking-tighter uppercase">
+        <a href="#hero" className="text-xl font-extrabold text-white tracking-tighter uppercase">
           LIFT<span className="font-light opacity-80">MYGRADE</span>
-        </div>
+        </a>
 
-        <nav className="hidden lg:flex items-center gap-10">
-          <a href="#services" className="text-sm font-medium text-white! hover:text-blue-300 transition-colors drop-shadow-sm">Pathways</a>
+        <nav className="hidden lg:flex items-center gap-8">
           <a href="#about" className="text-sm font-medium text-white! hover:text-blue-300 transition-colors drop-shadow-sm">Mentorship</a>
+          <a href="#services" className="text-sm font-medium text-white! hover:text-blue-300 transition-colors drop-shadow-sm">Pathways</a>
           <a href="#journey" className="text-sm font-medium text-white! hover:text-blue-300 transition-colors drop-shadow-sm">Journey</a>
           <a href="#outcome" className="text-sm font-medium text-white! hover:text-blue-300 transition-colors drop-shadow-sm">Outcomes</a>
           <a href="#testimonial" className="text-sm font-medium text-white! hover:text-blue-300 transition-colors drop-shadow-sm">Stories</a>
+          <a href="#blog" className="text-sm font-medium text-white! hover:text-blue-300 transition-colors drop-shadow-sm">Blog</a>
+          <a href="#pricing" className="text-sm font-medium text-white! hover:text-blue-300 transition-colors drop-shadow-sm">Pricing</a>
         </nav>
 
         <a
