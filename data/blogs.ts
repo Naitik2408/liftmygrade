@@ -328,7 +328,7 @@ export const blogs: BlogPost[] = [
     authorRole: "Lead Essay Editor",
     authorImage: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200",
     category: "Academic Branding",
-    coverImage: "/blog/blog1.webp",
+    coverImage: "/blog/blog3.webp",
     date: "May 20, 2026",
     content: `
       <p class="mb-4">Your Statement of Purpose is the only place in your application where the admissions committee hears you in your own voice. Your transcripts show what you did. Your test scores show how you performed. Your recommendation letters show what others think of you. The SOP is the one document where you make your own case.</p>
@@ -1794,6 +1794,109 @@ export const blogs: BlogPost[] = [
         <p class="mb-4">Explore LiftmyGrade's Master's Abroad pathway — we help students make this choice with real data, not marketing brochures.</p>
         <p class="font-semibold text-[#1C362B]">Pick the right country once. Build the rest of your career on it.</p>
       </div>
+    `
+  },
+  {
+    id: "14",
+    slug: "why-study-abroad-applications-get-rejected",
+    title: "Why Study Abroad Applications Get Rejected (And How to Fix It Before You Submit)",
+    excerpt: "Most rejected applications aren't rejected for the reasons students think. The actual reason is usually a profile that didn't make a clear, distinctive argument for itself.",
+    author: "LiftmyGrade Editorial",
+    authorRole: "Admissions Strategy Team",
+    authorImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=200",
+    category: "Application Strategy",
+    coverImage: "/blog/blog-14.webp",
+    date: "July 3, 2026",
+    content: `
+      <p class="mb-4">Most rejected applications aren't rejected for the reasons students think. The applicant assumes it was their GPA, their GRE, or "they only take students from IITs." The actual reason — visible only to the admissions committee — is usually a profile that didn't make a clear, distinctive argument for itself.</p>
+      <p class="mb-6">This guide breaks down the real rejection patterns we see across Bachelor's, Master's, and PhD applications from India — and what to fix before you submit, not after the email arrives.</p>
+      
+      <h2 class="text-2xl font-bold text-[#1C362B] mt-8 mb-4">The Five Rejection Categories</h2>
+      <p class="mb-4">Rejections cluster into five recognizable patterns. Most failed applications fall into one (sometimes two) of these — rarely "the candidate just wasn't good enough."</p>
+      
+      <figure class="my-8">
+        <img src="/blog/blog-14-1.webp" alt="Application Rejection Patterns" class="w-full rounded-2xl shadow-sm border border-[#EBEFEA] object-cover h-[400px]">
+        <figcaption class="text-sm text-center mt-3 text-gray-500">Common rejection patterns identified by admissions committees</figcaption>
+      </figure>
+
+      <h3 class="text-xl font-bold text-[#1C362B] mb-2">Pattern 1: Profile Mismatch</h3>
+      <p class="mb-6">You can have a strong profile that's still mismatched to the program. A 9.2 CGPA in Mechanical Engineering doesn't help a Computer Science PhD application without demonstrating necessary coursework or research experience. Committees don't admit smart people; they admit smart people who fit their specific cohort needs.</p>
+    `
+  },
+  {
+    id: "15",
+    slug: "building-an-academic-cv-for-study-abroad",
+    title: "Building an Academic CV for Study Abroad Applications: Structure, Mistakes & Examples",
+    excerpt: "The academic CV is the most underestimated document in a study abroad application. This guide breaks down what an academic CV should look like for Master's and PhD applications.",
+    author: "LiftmyGrade Editorial",
+    authorRole: "Admissions Strategy Team",
+    authorImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=200",
+    category: "Application Strategy",
+    coverImage: "/blog/blog-15.webp",
+    date: "July 3, 2026",
+    content: `
+      <p class="mb-4">The academic CV is the most underestimated document in a study abroad application. Students agonize over their SOP for months, then attach a 1-page corporate-style resume with bullet points about "team collaboration" and "communication skills." The mismatch is jarring — and admissions committees notice.</p>
+      <p class="mb-6">An academic CV isn't a job resume. It serves a different audience, follows different conventions, and emphasizes different signals. This guide breaks down what an academic CV should look like for Master's and PhD applications, and how to build one that actually supports your application.</p>
+      
+      <h2 class="text-2xl font-bold text-[#1C362B] mt-8 mb-4">Academic CV vs Resume: The Critical Distinction</h2>
+      <p class="mb-4">A job resume is a marketing document: it sells you to a hiring manager who will spend 30 seconds scanning it. An academic CV is a credential document: it lists everything you've done that's relevant to academic evaluation, in a format admissions officers can quickly digest.</p>
+      
+      <figure class="my-8">
+        <img src="/blog/blog-15-1.webp" alt="Academic CV Structure" class="w-full rounded-2xl shadow-sm border border-[#EBEFEA] object-cover h-[400px]">
+        <figcaption class="text-sm text-center mt-3 text-gray-500">The core structure of a winning academic CV</figcaption>
+      </figure>
+    `
+  },
+  {
+    id: "16",
+    slug: "bachelors-abroad-on-a-budget",
+    title: "Bachelor's Abroad on a Budget: Affordable Countries and Pathways for Indian Students",
+    excerpt: "A Bachelor's degree abroad doesn't have to cost INR 1 crore. This guide breaks down the countries that actually work for budget-conscious Bachelor's applicants.",
+    author: "LiftmyGrade Editorial",
+    authorRole: "Admissions Strategy Team",
+    authorImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=200",
+    category: "Financial Planning",
+    coverImage: "/blog/blog-16.webp",
+    date: "July 3, 2026",
+    content: `
+      <p class="mb-4">A Bachelor's degree abroad doesn't have to cost INR 1 crore. The narrative that's dominated Indian study-abroad conversations — that undergraduate education abroad is reserved for families with vast disposable wealth — quietly skips over the countries where it isn't true.</p>
+      <p class="mb-6">Germany, France, Norway, and parts of Eastern Europe offer Bachelor's degrees that cost INR 15–35 lakh total for three years, including living. That's less than many private engineering colleges in India. The catch: these countries are less marketed, less discussed in WhatsApp study-abroad groups, and require different preparation than the US-UK pipeline.</p>
+      
+      <h2 class="text-2xl font-bold text-[#1C362B] mt-8 mb-4">What "Budget" Actually Means for Bachelor's Abroad</h2>
+      <p class="mb-4">A useful frame: the total 3–4 year cost of a Bachelor's abroad.</p>
+      
+      <figure class="my-8">
+        <img src="/blog/blog-16-1.webp" alt="Budget comparison for Bachelor's Abroad" class="w-full rounded-2xl shadow-sm border border-[#EBEFEA] object-cover h-[400px]">
+        <figcaption class="text-sm text-center mt-3 text-gray-500">Cost comparison between different European countries</figcaption>
+      </figure>
+    `
+  },
+  {
+    id: "17",
+    slug: "from-student-visa-to-pr",
+    title: "From Student Visa to PR: Settlement Pathways After Master's Abroad in 2026",
+    excerpt: "For a significant share of Indian Master's applicants, the actual goal isn't the degree. It's the country. This guide maps the realistic PR pathways.",
+    author: "LiftmyGrade Editorial",
+    authorRole: "Admissions Strategy Team",
+    authorImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=200",
+    category: "Career & Settlement",
+    coverImage: "/blog/blog-17.webp",
+    date: "July 3, 2026",
+    content: `
+      <p class="mb-4">For a significant share of Indian Master's applicants, the actual goal isn't the degree. It's the country. The Master's is the credentialing event that unlocks a work visa, which unlocks a permanent residency pathway, which unlocks a settled life abroad. Pretending otherwise — in your application or in your planning — is unhelpful.</p>
+      <p class="mb-6">This guide is honest about that motivation. It maps the realistic PR pathways from a Master's degree across the five most relevant destinations for Indian students, what the trade-offs are, and how to plan your Master's choice around your settlement goal.</p>
+      
+      <h2 class="text-2xl font-bold text-[#1C362B] mt-8 mb-4">The Three-Stage Pathway Most Students Follow</h2>
+      <p class="mb-4">Every settlement-focused Master's-to-PR journey breaks into three stages.</p>
+      
+      <figure class="my-8">
+        <img src="/blog/blog-17-1.webp" alt="Student Visa to PR Pathway" class="w-full rounded-2xl shadow-sm border border-[#EBEFEA] object-cover h-[400px]">
+        <figcaption class="text-sm text-center mt-3 text-gray-500">The standard timeline from student visa to permanent residency</figcaption>
+      </figure>
+      
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li>Stage 1 — Student Visa to Post-Study Work Permit. You complete your degree and convert to a work-eligible visa. Each country has different rules, durations, and conditions.</li>
+      </ul>
     `
   }
 ];

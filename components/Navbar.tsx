@@ -82,6 +82,7 @@ export default function Navbar({
     { name: "How It Works", href: "/#journey" },
     { name: "Pricing", href: "/#pricing" },
     { name: "Testimonials", href: "/#testimonial" },
+    { name: "Blogs", href: "/#blog" },
     { name: "Contact", href: "/#contact" }
   ];
 
