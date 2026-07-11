@@ -36,15 +36,28 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const relatedBlogs = blogs.filter((b) => b.slug !== slug).slice(0, 3);
 
   const headings: Heading[] = [];
-  const headingRegex = /<(h[23])[^>]*id="([^"]+)"[^>]*>(.*?)<\/\1>/g;
-  let match;
-  while ((match = headingRegex.exec(blog.content)) !== null) {
+  let modifiedContent = blog.content;
+  
+  modifiedContent = modifiedContent.replace(/<(h[23])([^>]*)>([\s\S]*?)<\/\1>/g, (match, tag, attrs, innerText) => {
+    const idMatch = attrs.match(/id="([^"]+)"/);
+    let id = "";
+    let finalAttrs = attrs;
+
+    if (idMatch) {
+      id = idMatch[1];
+    } else {
+      id = innerText.replace(/<[^>]+>/g, "").toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      finalAttrs = ` id="${id}"${attrs}`;
+    }
+
     headings.push({
-      level: parseInt(match[1].replace('h', '')),
-      id: match[2],
-      text: match[3].replace(/<[^>]+>/g, ""),
+      level: parseInt(tag.replace('h', '')),
+      id: id,
+      text: innerText.replace(/<[^>]+>/g, ""),
     });
-  }
+
+    return `<${tag}${finalAttrs}>${innerText}</${tag}>`;
+  });
 
   return (
     <>
@@ -90,7 +103,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         {/* Content */}
         <div 
           className="prose prose-lg prose-neutral max-w-none prose-headings:font-serif prose-headings:text-[#1C362B] prose-a:text-[#1C362B] prose-p:text-neutral-700 prose-p:leading-relaxed prose-li:text-neutral-700 prose-headings:scroll-mt-24"
-          dangerouslySetInnerHTML={{ __html: blog.content }}
+          dangerouslySetInnerHTML={{ __html: modifiedContent }}
         />
           </article>
           <aside className="hidden lg:block lg:w-[30%] relative">
