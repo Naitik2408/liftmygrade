@@ -89,7 +89,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </header>
 
         {/* Cover Image */}
-        <div className="relative w-full aspect-[21/9] rounded-3xl overflow-hidden mb-16 bg-neutral-100">
+        <div className="relative w-full aspect-21/9 rounded-3xl overflow-hidden mb-16 bg-neutral-100">
           <Image
             src={blog.coverImage}
             alt={blog.title}
@@ -119,7 +119,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               {relatedBlogs.map((relatedBlog) => (
                 <Link href={`/blogs/${relatedBlog.slug}`} key={relatedBlog.id}>
                   <div className="flex flex-col group cursor-pointer h-full">
-                    <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden mb-5 bg-neutral-100">
+                    <div className="relative w-full aspect-4/3 rounded-3xl overflow-hidden mb-5 bg-neutral-100">
                       <Image 
                         src={relatedBlog.coverImage} 
                         alt={relatedBlog.title} 

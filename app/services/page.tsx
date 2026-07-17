@@ -101,7 +101,8 @@ export default function ServicesPage() {
     { title: "LinkedIn Profile", desc: "Complete build-out — headline, About, experience, and keyword positioning." },
     { title: "Company SOP", desc: "Corporate statement of purpose and operating documentation." },
     { title: "Grant Writing", desc: "Structured, persuasive proposals tailored to funding bodies and programs." },
-    { title: "PR Writing", desc: "Professional communications written for the right audience and channel.", tags: ["Press releases", "Media advisories", "Fact sheets", "White papers", "Case studies", "Social media"] }
+    { title: "PR Writing", desc: "Professional communications written for the right audience and channel.", tags: ["Press releases", "Media advisories", "Fact sheets", "White papers", "Case studies", "Social media"] },
+    { title: "Book Editing", desc: "Comprehensive editorial support to refine and polish your manuscript." }
   ];
 
   return (
