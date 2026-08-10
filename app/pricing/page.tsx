@@ -7,6 +7,14 @@ import Highlighter from "@/components/Highlighter";
 export const metadata = {
   title: "Pricing & Programs | LiftmyGrade",
   description: "Clear programs, transparent pricing. Structured programs for every stage of your journey.",
+  alternates: {
+    canonical: "https://liftmygrade.com/pricing",
+  },
+  openGraph: {
+    title: "Pricing & Programs | LiftmyGrade",
+    description: "Clear programs, transparent pricing. Structured programs for every stage of your journey.",
+    url: "https://liftmygrade.com/pricing",
+  },
 };
 
 const prWritingServices = [

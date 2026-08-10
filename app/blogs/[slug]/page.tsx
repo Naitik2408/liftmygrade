@@ -19,9 +19,37 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const blog = blogs.find((b) => b.slug === slug);
   if (!blog) return { title: "Blog Not Found - LiftmyGrade" };
   
+  const canonicalUrl = `https://liftmygrade.com/blogs/${blog.slug}`;
+  const imageUrl = blog.coverImage.startsWith("http")
+    ? blog.coverImage
+    : `https://liftmygrade.com${blog.coverImage}`;
+
   return {
     title: `${blog.title} - LiftmyGrade`,
     description: blog.excerpt,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: blog.title,
+      description: blog.excerpt,
+      url: canonicalUrl,
+      type: "article",
+      publishedTime: blog.date,
+      authors: [blog.author],
+      images: [
+        {
+          url: imageUrl,
+          alt: blog.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: blog.title,
+      description: blog.excerpt,
+      images: [imageUrl],
+    },
   };
 }
 
@@ -59,10 +87,45 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     return `<${tag}${finalAttrs}>${innerText}</${tag}>`;
   });
 
+  const coverImageUrl = blog.coverImage.startsWith("http")
+    ? blog.coverImage
+    : `https://liftmygrade.com${blog.coverImage}`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: blog.title,
+    description: blog.excerpt,
+    image: [coverImageUrl],
+    datePublished: blog.date,
+    author: {
+      "@type": "Person",
+      name: blog.author,
+      jobTitle: blog.authorRole,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "LiftmyGrade",
+      url: "https://liftmygrade.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://liftmygrade.com/icon.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://liftmygrade.com/blogs/${blog.slug}`,
+    },
+  };
+
   return (
     <>
       <Navbar hideLinks theme="light" />
       <main className="min-h-screen bg-white pt-32 pb-24 px-6 md:px-12 lg:px-16">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       <div className="max-w-7xl mx-auto">
         
         <Link href="/blogs" className="inline-flex items-center text-sm font-medium text-neutral-500 hover:text-[#1C362B] transition-colors mb-10 group">

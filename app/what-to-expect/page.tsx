@@ -7,6 +7,14 @@ import Link from "next/link";
 export const metadata = {
   title: "What You Can Expect | LiftmyGrade",
   description: "What you can expect after joining our ecosystem - free discovery, our promises, and step-by-step guidance.",
+  alternates: {
+    canonical: "https://liftmygrade.com/what-to-expect",
+  },
+  openGraph: {
+    title: "What You Can Expect | LiftmyGrade",
+    description: "What you can expect after joining our ecosystem - free discovery, our promises, and step-by-step guidance.",
+    url: "https://liftmygrade.com/what-to-expect",
+  },
 };
 
 export default function WhatToExpectPage() {

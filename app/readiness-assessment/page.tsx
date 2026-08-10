@@ -7,6 +7,14 @@ import Image from "next/image";
 export const metadata = {
   title: "Study Abroad Readiness Assessment | LiftmyGrade",
   description: "Tell us about your goals and academic background. Our admissions mentors will review your profile and map out the right pathway for you.",
+  alternates: {
+    canonical: "https://liftmygrade.com/readiness-assessment",
+  },
+  openGraph: {
+    title: "Study Abroad Readiness Assessment | LiftmyGrade",
+    description: "Tell us about your goals and academic background. Our admissions mentors will review your profile and map out the right pathway for you.",
+    url: "https://liftmygrade.com/readiness-assessment",
+  },
 };
 
 export default function ReadinessAssessmentPage() {

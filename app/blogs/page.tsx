@@ -8,6 +8,14 @@ import Navbar from "@/components/Navbar";
 export const metadata = {
   title: "Blog - LiftmyGrade",
   description: "Explore our latest insights and academic journeys.",
+  alternates: {
+    canonical: "https://liftmygrade.com/blogs",
+  },
+  openGraph: {
+    title: "Blog - LiftmyGrade",
+    description: "Explore our latest insights and academic journeys.",
+    url: "https://liftmygrade.com/blogs",
+  },
 };
 
 export default function BlogsPage() {

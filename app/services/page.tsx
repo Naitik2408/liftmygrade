@@ -9,6 +9,14 @@ import Highlighter from "@/components/Highlighter";
 export const metadata = {
   title: "Our Services & Products | LiftmyGrade",
   description: "Everything we offer, in one place. From free readiness assessments to fully drafted applications, research support, and career documents.",
+  alternates: {
+    canonical: "https://liftmygrade.com/services",
+  },
+  openGraph: {
+    title: "Our Services & Products | LiftmyGrade",
+    description: "Everything we offer, in one place. From free readiness assessments to fully drafted applications, research support, and career documents.",
+    url: "https://liftmygrade.com/services",
+  },
 };
 
 const ServiceSection = ({ id, label, title, subtitle, items, theme = "default" }: any) => {

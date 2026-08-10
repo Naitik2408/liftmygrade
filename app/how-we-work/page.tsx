@@ -8,6 +8,14 @@ import Highlighter from "@/components/Highlighter";
 export const metadata = {
   title: "How We Work | LiftmyGrade",
   description: "Learn about the step-by-step process we take to build your global academic journey.",
+  alternates: {
+    canonical: "https://liftmygrade.com/how-we-work",
+  },
+  openGraph: {
+    title: "How We Work | LiftmyGrade",
+    description: "Learn about the step-by-step process we take to build your global academic journey.",
+    url: "https://liftmygrade.com/how-we-work",
+  },
 };
 
 export default function HowWeWorkPage() {

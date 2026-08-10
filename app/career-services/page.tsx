@@ -8,6 +8,14 @@ import Highlighter from "@/components/Highlighter";
 export const metadata = {
   title: "Career & Professional Services | LiftmyGrade",
   description: "Project-based professional document writing and career support services.",
+  alternates: {
+    canonical: "https://liftmygrade.com/career-services",
+  },
+  openGraph: {
+    title: "Career & Professional Services | LiftmyGrade",
+    description: "Project-based professional document writing and career support services.",
+    url: "https://liftmygrade.com/career-services",
+  },
 };
 
 export default function CareerServicesPage() {
