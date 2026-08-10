@@ -46,6 +46,18 @@ export default function Pathways() {
       desc: "Specialized project-based document writing for professionals and corporate clients. Standalone support for Resumes, SOPs, Grants, and PR.",
       image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1000&q=90",
     },
+    {
+      id: "07",
+      title: "Book & Book Chapter Editing",
+      desc: "Comprehensive structural and line editing for academic books, edited volumes, and contributed book chapters.",
+      image: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=1000&q=90",
+    },
+    {
+      id: "08",
+      title: "Plagiarism & AI Content Removal",
+      desc: "Thorough similarity reduction, paraphrase refinement, and AI detection score optimization while preserving original academic voice.",
+      image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1000&q=90",
+    },
   ];
 
   useEffect(() => {
@@ -112,7 +124,7 @@ export default function Pathways() {
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
                 <div className="text-xs sm:text-sm font-semibold text-neutral-400 mb-3 sm:mb-4 tracking-widest uppercase">
-                  {current.id} / 06
+                  {current.id} / {String(pathways.length).padStart(2, "0")}
                 </div>
                 <h3 className="text-xl sm:text-2xl md:text-4xl font-bold text-[#171717] mb-4 sm:mb-6 tracking-tight">
                   {current.title}
@@ -128,7 +140,7 @@ export default function Pathways() {
                   <button 
                     key={i} 
                     onClick={() => setActiveIndex(i)}
-                    className="group relative h-4 flex-1 sm:flex-none sm:w-16 flex items-end"
+                    className="group relative h-4 flex-1 sm:flex-none sm:w-10 flex items-end"
                   >
                     <div className="h-1 sm:h-1.5 w-full rounded-full bg-neutral-100 group-hover:bg-neutral-200 transition-colors" />
                     {i === activeIndex && (

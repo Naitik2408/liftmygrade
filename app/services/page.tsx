@@ -101,7 +101,9 @@ export default function ServicesPage() {
 
   const publication = [
     { title: "Journal Publication Assistance", desc: "Support getting your work published in peer-reviewed journals — including Scopus-indexed, Google Scholar, and UGC-listed outlets.", tags: ["Scopus", "Google Scholar", "UGC-listed", "Peer-reviewed"] },
-    { title: "Manuscript Editing & Positioning", desc: "Editorial support to refine and position your manuscript for submission — an additional edge for humanities, postgraduate, and research applicants." }
+    { title: "Manuscript Editing & Positioning", desc: "Editorial support to refine and position your manuscript for submission — an additional edge for humanities, postgraduate, and research applicants." },
+    { title: "Book & Book Chapter Editing", desc: "Comprehensive structural and line editing for academic books, edited volumes, and contributed book chapters." },
+    { title: "Plagiarism & AI Content Removal", desc: "Thorough similarity reduction, paraphrase refinement, and AI detection score optimization while preserving original academic voice." }
   ];
 
   const career = [
